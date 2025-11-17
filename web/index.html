@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vibe - Ethereal Voice UI</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <canvas id="cloud"></canvas>
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Immersive voice companion</p>
+          <h1>Vibe Nebula</h1>
+          <p class="lede">
+            Speak, listen, and watch the ethereal cloud respond to your tone.
+            A local-first assistant inspired by RAiTHE, tuned for your GPU.
+          </p>
+          <div class="pills">
+            <span>LLM + Whisper + Coqui</span>
+            <span>Real-time mic-reactive aura</span>
+            <span>Runs fully local</span>
+          </div>
+        </div>
+        <div class="status-card">
+          <div class="status-dot" id="status-dot"></div>
+          <div>
+            <p class="status-label">Backend</p>
+            <p id="status-text">Connecting…</p>
+          </div>
+          <button class="ghost" id="health-refresh" aria-label="Refresh status">↻</button>
+        </div>
+      </header>
+
+      <section class="panel">
+        <div class="panel__cloud-hint">Cloud intensity follows your voice & playback</div>
+        <div class="chat" id="chat-log"></div>
+
+        <div class="controls">
+          <div class="field">
+            <label for="prompt">Ask anything</label>
+            <div class="input-row">
+              <input id="prompt" type="text" placeholder="Plan a study sprint or ask about your code…" />
+              <button id="record" class="icon" aria-label="Record audio" title="Hold to record">
+                🎙️
+              </button>
+            </div>
+          </div>
+          <div class="actions">
+            <label class="toggle">
+              <input type="checkbox" id="speak-toggle" />
+              <span class="toggle__pill"></span>
+              <span class="toggle__label">Speak responses</span>
+            </label>
+            <button id="send" class="primary">Send</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <template id="bubble-template">
+      <div class="bubble">
+        <div class="bubble__role"></div>
+        <div class="bubble__text"></div>
+      </div>
+    </template>
+
+    <script src="/static/app.js" type="module"></script>
+  </body>
+</html>
