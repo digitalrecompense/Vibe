@@ -51,6 +51,15 @@ This repo packages a practical prototype you can run on Windows 11 with an RTX 3
      python run_assistant.py "Create a 3-step study plan for linear algebra." --speak output.wav
      ```
 
+7. **Launch the immersive “Nebula” UI**
+   ```powershell
+   # start the FastAPI server that also serves the animated UI
+   python -m uvicorn vibe_ai.server:app --host 0.0.0.0 --port 8000
+   # then visit http://localhost:8000 in your browser
+   ```
+   - The glassy chat surface includes a microphone-reactive cloud (using Web Audio) and a “Speak responses” toggle.
+   - Use the 🎙️ button to record a voice question; it will be transcribed locally via `faster-whisper` and injected into the prompt box.
+
 ## Configuration knobs
 
 Environment variables let you tune speed/quality for your 3060 Ti:
